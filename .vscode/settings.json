@@ -1,0 +1,17 @@
+{
+  "editor.tabSize": 2,
+  "editor.rulers": [80, 120],
+  "java.home": "/usr/lib/jvm/java-11",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-1.8",
+      "path": "/usr/lib/jvm/java-1.8.0",
+      "default": true
+    },
+    {
+      "name": "JavaSE-11",
+      "path": "/usr/lib/jvm/java-11"
+    }
+  ]
+}

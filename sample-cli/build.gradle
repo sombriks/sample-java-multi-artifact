@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+dependencies {
+    compile project(":sample-core")
+    testCompile 'junit:junit:4.12'
+}
+
+application {
+    mainClass = 'sample.multi.artifact.cli.Main'
+}

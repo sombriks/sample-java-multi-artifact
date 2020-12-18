@@ -1,0 +1,6 @@
+rootProject.name = 'sample-java-multi-artifact'
+include 'sample-api'
+include 'sample-api-cli'
+include 'sample-cli'
+include 'sample-core'
+include 'sample-model'

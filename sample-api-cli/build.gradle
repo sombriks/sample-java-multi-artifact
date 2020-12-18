@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+application {
+    mainClass = 'sample.multi.artifact.api.cli.Main'
+}
