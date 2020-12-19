@@ -7,10 +7,10 @@ Sample to demonstrate mono-repo/multi-projects approach on java solutions
 - java 8
 - gradle 6.7
 
-Built and tested on Fedora 33 with java 8. Both tools must be present at command
-line.
+Built and tested on Fedora 33 with java 8. Both tools must be present at the 
+command line.
 
-One good way to manage java tools is <https://sdkman.io/>
+One good way to manage java tools is <https://sdkman.io/>.
 
 ## How to run this sample
 

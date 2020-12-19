@@ -3,7 +3,7 @@ package sample.multi.artifact.api;
 import io.javalin.Javalin;
 
 
-public class Main {
+public class MainApi {
 
   public static void main(String[] args) {
     Javalin app = Javalin.create().start(8080);
