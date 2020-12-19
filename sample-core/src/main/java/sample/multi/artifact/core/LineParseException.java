@@ -1,4 +1,4 @@
-package sample.multi.artifact.parser;
+package sample.multi.artifact.core;
 
 public class LineParseException extends Exception {
   private static final long serialVersionUID = 481460405176740281L;

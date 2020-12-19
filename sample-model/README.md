@@ -7,9 +7,12 @@ get tainted by other higher level implementations.
 
 ## models
 
-- Game
-- Score
-- Line
+- **Line**: Our basic input. each valid row recovered from text file. 
+- **Game**: The collection of ScoreBoards for each player discovered in the text
+  file. 
+- **ScoreBoard**: Collection of Scores for each player. Used to proper organize
+  the maximum of 10 scores. 
+- **Score**: An individual Score. 
 
 Model project also includes `LineParser`, which knows how to transform a String
 into a valid Line. If possible.

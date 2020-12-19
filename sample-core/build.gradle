@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+    compile 'com.google.inject:guice:4.2.3'
     compile project(":sample-model")
     testCompile 'junit:junit:4.12'
 }
