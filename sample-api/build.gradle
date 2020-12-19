@@ -4,5 +4,6 @@ plugins {
 
 
 dependencies {
+    compile project(":sample-core")
     testCompile 'junit:junit:4.12'
 }

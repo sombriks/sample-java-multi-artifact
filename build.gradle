@@ -1,8 +1,10 @@
-
-subprojects {
-  version = '1.0'
-
+// multi-project root
+allprojects {
   repositories {
     jcenter()
   }
+}
+
+subprojects {
+  version = '1.0'
 }

@@ -30,7 +30,7 @@ In the second one:
 
 ```bash
 gradle build
-gradle :sample-api-cli:run
+gradle :sample-api-cli:run --args="input-examples/input-good.txt"
 ``` 
 
 The APP_ENV environment variable is assumed as `development` so the api-cli will

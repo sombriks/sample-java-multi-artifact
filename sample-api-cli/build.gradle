@@ -5,6 +5,7 @@ plugins {
 
 
 dependencies {
+    compile project(":sample-model")
     testCompile 'junit:junit:4.12'
 }
 
