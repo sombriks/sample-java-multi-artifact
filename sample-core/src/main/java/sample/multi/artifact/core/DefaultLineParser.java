@@ -2,6 +2,7 @@ package sample.multi.artifact.core;
 
 import sample.multi.artifact.model.Line;
 
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DefaultLineParser implements LineParser {
@@ -13,7 +14,8 @@ public class DefaultLineParser implements LineParser {
 		if (input == null || "".equals(input.trim()))
 			throw new LineParseException("No input", input);
 
-		String[] parts = input.split(" ");
+		String[] parts = Stream.of(input.split(" "))
+				.filter(i -> !"".equals(i.trim())).toArray(String[]::new);
 
 		if (parts.length != 2)
 			throw new LineParseException("Incorrect line format", input);

@@ -19,7 +19,7 @@ containing this README and use gradle:
 
 ```bash
 gradle build
-gradle :sample-cli:run --args="input-examples/input-good.txt"
+gradle :sample-cli:run --args="../input-examples/input-good.txt"
 ``` 
 
 As an alternative, open two consoles. in the first one run:
@@ -33,7 +33,7 @@ In the second one:
 
 ```bash
 gradle build
-gradle :sample-api-cli:run --args="input-examples/input-good.txt"
+gradle :sample-api-cli:run --args="../input-examples/input-good.txt"
 ``` 
 
 The APP_ENV environment variable is assumed as `development` so the api-cli will
