@@ -6,5 +6,6 @@ allprojects {
 }
 
 subprojects {
+  group = 'sample.multi.artifact'
   version = '1.0'
 }

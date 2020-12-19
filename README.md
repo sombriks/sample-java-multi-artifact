@@ -5,11 +5,14 @@ Sample to demonstrate mono-repo/multi-projects approach on java solutions
 ## Dependencies
 
 - java 8
-- gradle 6
+- gradle 6.7
 
-Built and tested on Fedora 33 with java 8 
+Built and tested on Fedora 33 with java 8. Both tools must be present at command
+line.
 
-## how to run this sample
+One good way to manage java tools is <https://sdkman.io/>
+
+## How to run this sample
 
 All you need to do is to build the projects by opening a terminal in the folder
 containing this README and use gradle:

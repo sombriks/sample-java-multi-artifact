@@ -2,7 +2,6 @@ plugins {
     id 'java'
 }
 
-
 dependencies {
     compile project(":sample-model")
     testCompile 'junit:junit:4.12'
