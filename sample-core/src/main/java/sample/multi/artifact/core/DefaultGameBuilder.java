@@ -4,10 +4,18 @@ import sample.multi.artifact.model.Game;
 import sample.multi.artifact.model.Line;
 import sample.multi.artifact.model.ScoreBoard;
 
+import javax.inject.Inject;
 import java.util.Date;
 import java.util.stream.Stream;
 
 public class DefaultGameBuilder implements GameBuilder {
+
+	private final ScoreBoardBuilder scoreBoardBuilder;
+
+	@Inject
+	public DefaultGameBuilder(ScoreBoardBuilder scoreBoardBuilder) {
+		this.scoreBoardBuilder = scoreBoardBuilder;
+	}
 
 	@Override
 	public Game fromLines(Line... lines) {
@@ -22,6 +30,9 @@ public class DefaultGameBuilder implements GameBuilder {
 			}
 			board.getLines().add(line);
 		});
+
+		game.getBoards().forEach((player, board) -> scoreBoardBuilder.buildScores(board));
+
 		return game;
 	}
 }

@@ -4,10 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sample.multi.artifact.core.GameBuilder;
-import sample.multi.artifact.core.GamePrinter;
-import sample.multi.artifact.core.LineParseException;
-import sample.multi.artifact.core.LineParser;
+import sample.multi.artifact.core.*;
 import sample.multi.artifact.model.Game;
 import sample.multi.artifact.model.Line;
 
@@ -23,7 +20,7 @@ public class MainCli {
 
 	public static void main(String... args) throws IOException {
 
-		Injector injector = Guice.createInjector(new DefaultCliModule());
+		Injector injector = Guice.createInjector(new DefaultModule());
 		LineParser lineParser = injector.getInstance(LineParser.class);
 
 		if (args.length < 1) {
@@ -43,6 +40,6 @@ public class MainCli {
 		GameBuilder builder = injector.getInstance(GameBuilder.class);
 		Game game = builder.fromLines(lines.toArray(new Line[0]));
 		GamePrinter printer = injector.getInstance(GamePrinter.class);
-		printer.printGame(game,System.out);
+		printer.printGame(game, System.out);
 	}
 }
