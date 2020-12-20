@@ -1,5 +1,8 @@
 package sample.multi.artifact.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Score {
 
 	private Long id;
@@ -63,6 +66,10 @@ public class Score {
 
 	public boolean isStrike() {
 		return take1 == 10 && !isFinalFrame();
+	}
+
+	public boolean isSpare() {
+		return take1 < 10 && take1 + take2 == 10 && !isFinalFrame();
 	}
 
 	public void fit() {
