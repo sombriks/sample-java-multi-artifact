@@ -39,7 +39,23 @@ gradle :sample-api-cli:run --args="../input-examples/input-good.txt"
 The APP_ENV environment variable is assumed as `development` so the api-cli will
 send the request to <http://localhost:8080/api>.
 
-## why mono-repo/multi-projects
+## Test Coverage
+
+The jacoco plugin is included on some projects, so it's possible to measure how
+much of the code is covered by tests and which situations either need a test
+case or already have it.
+
+In order to build the reports:
+
+```bash
+gradle build
+gradle jacocoTestReport
+``` 
+
+Reports can be found on 
+`<project-name>/build/reports/jacoco/test/html/index.html`.
+
+## Why mono-repo/multi-projects
 
 Monolith solutions can be better managed when each functionality is treated as
 dedicated project. If migrating some parts of it to microservices, each project

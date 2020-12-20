@@ -3,6 +3,7 @@ package sample.multi.artifact.model;
 public class Line {
 
 	private Long id;
+	private Long scoreBoardId;
 	private String player;
 	private Integer pins;
 
@@ -12,6 +13,14 @@ public class Line {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getScoreBoardId() {
+		return scoreBoardId;
+	}
+
+	public void setScoreBoardId(Long scoreBoardId) {
+		this.scoreBoardId = scoreBoardId;
 	}
 
 	public String getPlayer() {

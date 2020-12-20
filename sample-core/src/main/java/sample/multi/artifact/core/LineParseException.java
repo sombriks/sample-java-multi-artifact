@@ -2,7 +2,7 @@ package sample.multi.artifact.core;
 
 public class LineParseException extends Exception {
   private static final long serialVersionUID = 481460405176740281L;
-  private String originalInput;
+  private final String originalInput;
 
   public LineParseException(String originalInput) {
     super(originalInput);

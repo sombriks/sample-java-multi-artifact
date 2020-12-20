@@ -2,7 +2,6 @@ package sample.multi.artifact.core;
 
 import sample.multi.artifact.model.Line;
 
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DefaultLineParser implements LineParser {

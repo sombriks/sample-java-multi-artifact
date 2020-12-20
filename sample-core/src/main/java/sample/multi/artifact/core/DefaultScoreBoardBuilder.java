@@ -23,11 +23,12 @@ public class DefaultScoreBoardBuilder implements ScoreBoardBuilder {
 			else if (score.getTake2() == null) score.setTake2(line.getPins());
 			else if (score.getTake3() == null && score.isFinalFrame()) score.setTake3(line.getPins());
 
-			if (score.isFilled() || score.isStrike()) {
+			if(score.isFilled() && score.isFinalFrame()) break;
+
+			if (score.isFilled()) {
 				score.fit();
 				score = null;
 			}
-
 		}
 
 		scoreBoard.getScores().forEach(Score::fit);

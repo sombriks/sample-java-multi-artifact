@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ScoreBoard {
 	private Long id;
+	private Long gameId;
 	private String player;
 	private List<Score> scores = new ArrayList<>();
 	private List<Line> lines = new ArrayList<>();
@@ -15,6 +16,14 @@ public class ScoreBoard {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getGameId() {
+		return gameId;
+	}
+
+	public void setGameId(Long gameId) {
+		this.gameId = gameId;
 	}
 
 	public String getPlayer() {
