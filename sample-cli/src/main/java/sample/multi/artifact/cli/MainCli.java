@@ -14,8 +14,13 @@ public class MainCli {
 			System.out.println("Please inform the file input path");
 			return;
 		}
-		Injector injector = Guice.createInjector(new CliModule(), new DefaultModule());
+
+		Injector injector = Guice.createInjector(
+				new CliModule(), new DefaultModule()
+		);
+
 		App app = injector.getInstance(App.class);
-		app.readInput(args[0]);
+
+		app.readInput(args[0], System.out);
 	}
 }

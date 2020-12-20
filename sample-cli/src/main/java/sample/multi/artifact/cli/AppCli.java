@@ -12,6 +12,7 @@ import sample.multi.artifact.model.Line;
 import javax.inject.Inject;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ public class AppCli implements App {
 	}
 
 	@Override
-	public void readInput(String path) throws IOException {
+	public Game readInput(String path, PrintStream out) throws IOException {
 		List<Line> lines = new ArrayList<>();
 		Files.readAllLines(new File(path).toPath()).forEach(line -> {
 			try {
@@ -42,6 +43,7 @@ public class AppCli implements App {
 			}
 		});
 		Game game = builder.fromLines(lines.toArray(new Line[0]));
-		printer.printGame(game, System.out);
+		printer.printGame(game, out);
+		return game;
 	}
 }

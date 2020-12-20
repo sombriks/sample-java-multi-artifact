@@ -1,6 +1,8 @@
 # Sample java multi artifact
 
-Sample to demonstrate mono-repo/multi-projects approach on java solutions
+Sample to demonstrate mono-repo/multi-projects approach on java solutions.
+
+Each project honors the maven standard project layout.
 
 ## Dependencies
 
@@ -60,4 +62,10 @@ Reports can be found on
 Monolith solutions can be better managed when each functionality is treated as
 dedicated project. If migrating some parts of it to microservices, each project
 already provides some level of targets to proper feature-strangling.
+
+## Why Guice
+
+Nothing against Spring or JEE, Guice was chosen as DI container just because
+it's simple and fits well the needs of the project with a relatively small 
+size footprint. Fewer dependencies, lighter classpath.
 

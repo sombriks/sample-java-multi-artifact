@@ -7,6 +7,14 @@ public class Line {
 	private String player;
 	private Integer pins;
 
+	public Line() {
+	}
+
+	public Line(String player, Integer pins) {
+		this.player = player;
+		this.pins = pins;
+	}
+
 	public Long getId() {
 		return id;
 	}
