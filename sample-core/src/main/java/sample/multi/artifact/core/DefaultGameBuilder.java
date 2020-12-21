@@ -28,6 +28,7 @@ public class DefaultGameBuilder implements GameBuilder {
 		Game game = new Game();
 		game.setCreatedAt(new Date());
 		Stream.of(lines).forEach(line -> {
+			game.getLines().add(line);
 			ScoreBoard board = game.getBoards().get(line.getPlayer());
 			if (board == null) {
 				board = new ScoreBoard();

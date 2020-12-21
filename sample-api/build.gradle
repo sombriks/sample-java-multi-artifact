@@ -6,11 +6,13 @@ plugins {
 dependencies {
     compile project(":sample-core")
     compile 'io.javalin:javalin:3.12.0'
-    compile "com.fasterxml.jackson.core:jackson-databind:2.10.3"
     compile 'com.h2database:h2:1.4.200'
+    compile "com.fasterxml.jackson.core:jackson-databind:2.10.3"
+    compile 'org.hibernate:hibernate-entitymanager:5.4.23.Final'
+
     testCompile 'junit:junit:4.12'
 }
 
 application {
-    mainClass = 'sample.multi.artifact.api.MainApi'
+    mainClass = 'sample.multi.artifact.api.ApiMain'
 }

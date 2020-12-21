@@ -1,9 +1,13 @@
 package sample.multi.artifact.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Line {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Long scoreBoardId;
 	private String player;
 	private Integer pins;
 
@@ -23,13 +27,6 @@ public class Line {
 		this.id = id;
 	}
 
-	public Long getScoreBoardId() {
-		return scoreBoardId;
-	}
-
-	public void setScoreBoardId(Long scoreBoardId) {
-		this.scoreBoardId = scoreBoardId;
-	}
 
 	public String getPlayer() {
 		return player;
@@ -46,4 +43,5 @@ public class Line {
 	public void setPins(Integer pins) {
 		this.pins = pins;
 	}
+
 }

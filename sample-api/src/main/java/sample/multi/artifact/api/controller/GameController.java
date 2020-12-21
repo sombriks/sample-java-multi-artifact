@@ -4,4 +4,5 @@ import io.javalin.http.Context;
 
 public interface GameController {
 	void newGame(Context context);
+	void list(Context context);
 }

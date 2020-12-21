@@ -1,12 +1,21 @@
 package sample.multi.artifact.model;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.*;
+import java.util.*;
 
+@Entity
 public class Game {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private Date createdAt;
+
+  @JoinColumn(name = "gameId", nullable = false)
+  @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  private List<Line> lines = new ArrayList<>();
+
+  @Transient
   private Map<String, ScoreBoard> boards = new HashMap<>();
 
   public Long getId() {
@@ -23,6 +32,14 @@ public class Game {
 
   public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public List<Line> getLines() {
+    return lines;
+  }
+
+  public void setLines(List<Line> lines) {
+    this.lines = lines;
   }
 
   public Map<String, ScoreBoard> getBoards() {

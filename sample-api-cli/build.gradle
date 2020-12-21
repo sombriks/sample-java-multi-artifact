@@ -14,5 +14,5 @@ dependencies {
 }
 
 application {
-    mainClass = 'sample.multi.artifact.api.cli.MainApiCli'
+    mainClass = 'sample.multi.artifact.api.cli.ApiCliMain'
 }

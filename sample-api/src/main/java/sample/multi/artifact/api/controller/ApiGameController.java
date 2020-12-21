@@ -4,6 +4,7 @@ import io.javalin.http.Context;
 import io.javalin.plugin.json.JavalinJson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sample.multi.artifact.api.service.GameService;
 import sample.multi.artifact.core.*;
 import sample.multi.artifact.model.Game;
 import sample.multi.artifact.model.Line;
@@ -21,9 +22,16 @@ public class ApiGameController implements GameController {
 	private final LineParser parser;
 	private final GameBuilder builder;
 	private final GamePrinter printer;
+	private final GameService service;
 
 	@Inject
-	public ApiGameController(LineParser parser, GameBuilder builder, GamePrinter printer) {
+	public ApiGameController(
+			LineParser parser,
+			GameBuilder builder,
+			GamePrinter printer,
+			GameService service
+	) {
+		this.service = service;
 		this.printer = printer;
 		this.builder = builder;
 		this.parser = parser;
@@ -58,7 +66,7 @@ public class ApiGameController implements GameController {
 				context.contentType("text/plain");
 				printer.printGame(game, out);
 			}
-
+			service.save(game);
 		} catch (GameBuilderException ex) {
 			LOG.error("game building problem", ex);
 			context.status(422).result("game building problem");
@@ -66,5 +74,10 @@ public class ApiGameController implements GameController {
 			LOG.error("game printing problem", ex);
 			context.status(422).result("game printing problem");
 		}
+	}
+
+	@Override
+	public void list(Context context) {
+		context.json(service.list());
 	}
 }

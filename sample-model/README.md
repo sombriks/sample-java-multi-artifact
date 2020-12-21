@@ -14,5 +14,9 @@ get tainted by other higher level implementations.
   the maximum of 10 scores. 
 - **Score**: An individual Score. 
 
-Model project also includes `LineParser`, which knows how to transform a String
-into a valid Line. If possible.
+## Java Persistence 
+
+`Line` and `Game` models has well-known JPA annotations but there is no place
+for full JPA/Hibernate dependencies. Therefore, only API jar is present,
+allowing classes to be properly annotated in order to be consumed by any JPA
+runtime present on higher modules (i.e. the sample-api module).

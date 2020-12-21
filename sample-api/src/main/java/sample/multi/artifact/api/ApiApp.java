@@ -2,6 +2,7 @@ package sample.multi.artifact.api;
 
 import io.javalin.Javalin;
 import sample.multi.artifact.api.controller.GameController;
+import sample.multi.artifact.api.service.MigrateService;
 
 import javax.inject.Inject;
 
@@ -12,12 +13,14 @@ public class ApiApp implements Api {
 	private String environment;
 
 	private final GameController gameController;
+	private final MigrateService migrate;
 
 	@Inject
-	public ApiApp(GameController gameController) {
+	public ApiApp(GameController gameController, MigrateService migrate) {
 		environment = System.getenv("APP_ENV");
 		if (environment == null) environment = "development";
 		this.gameController = gameController;
+		this.migrate = migrate;
 	}
 
 	@Override
@@ -30,11 +33,17 @@ public class ApiApp implements Api {
 		}).routes(() -> {
 			path("/api", () -> {
 				get("", ctx -> ctx.result("Online"));
+				get("/games", gameController::list);
 				path("/new-game", () -> {
 					post(gameController::newGame);
 				});
 			});
 		});
 		return app;
+	}
+
+	@Override
+	public void migrateDB()  throws Exception {
+		migrate.latest();
 	}
 }
