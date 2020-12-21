@@ -16,3 +16,5 @@ comfortable JAX-RS annotations.
 It also provides support for OpenApi annotations and automatic swagger
 documentation generation.
 
+We still combine it with Guice for dependency injection purposes so contracts
+remains decoupled from implementations.

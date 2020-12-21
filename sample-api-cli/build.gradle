@@ -6,6 +6,10 @@ plugins {
 
 dependencies {
     compile project(":sample-model")
+    compile 'com.google.inject:guice:4.2.3'
+    compile 'com.squareup.retrofit2:retrofit:2.9.0'
+    compile 'com.squareup.retrofit2:converter-jackson:2.9.0'
+
     testCompile 'junit:junit:4.12'
 }
 

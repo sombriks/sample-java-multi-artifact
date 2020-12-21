@@ -55,6 +55,7 @@ public class ApiGameController implements GameController {
 		try {
 			Game game = builder.fromLines(lines.toArray(new Line[0]));
 			try (PrintStream out = new PrintStream(context.res.getOutputStream())) {
+				context.contentType("text/plain");
 				printer.printGame(game, out);
 			}
 
