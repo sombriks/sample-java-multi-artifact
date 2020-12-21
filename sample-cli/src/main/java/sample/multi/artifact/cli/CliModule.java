@@ -5,6 +5,6 @@ import com.google.inject.AbstractModule;
 public class CliModule extends AbstractModule {
 	@Override
 	protected void configure() {
-		bind(App.class).to(AppCli.class);
+		bind(App.class).to(CliApp.class);
 	}
 }

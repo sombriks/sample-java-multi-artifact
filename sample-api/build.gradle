@@ -6,6 +6,7 @@ plugins {
 dependencies {
     compile project(":sample-core")
     compile 'io.javalin:javalin:3.12.0'
+    compile 'com.h2database:h2:1.4.200'
     testCompile 'junit:junit:4.12'
 }
 

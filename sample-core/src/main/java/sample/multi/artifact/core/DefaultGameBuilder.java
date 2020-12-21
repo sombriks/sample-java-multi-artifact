@@ -1,5 +1,7 @@
 package sample.multi.artifact.core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sample.multi.artifact.model.Game;
 import sample.multi.artifact.model.Line;
 import sample.multi.artifact.model.ScoreBoard;
@@ -10,6 +12,8 @@ import java.util.stream.Stream;
 
 public class DefaultGameBuilder implements GameBuilder {
 
+	private static final Logger LOG = LoggerFactory.getLogger(DefaultGameBuilder.class);
+
 	private final ScoreBoardBuilder scoreBoardBuilder;
 
 	@Inject
@@ -18,7 +22,9 @@ public class DefaultGameBuilder implements GameBuilder {
 	}
 
 	@Override
-	public Game fromLines(Line... lines) {
+	public Game fromLines(Line... lines) throws GameBuilderException {
+		if(lines == null) throw new GameBuilderException("Line array cannot be null");
+		LOG.debug("Reading "+lines.length+" lines");
 		Game game = new Game();
 		game.setCreatedAt(new Date());
 		Stream.of(lines).forEach(line -> {

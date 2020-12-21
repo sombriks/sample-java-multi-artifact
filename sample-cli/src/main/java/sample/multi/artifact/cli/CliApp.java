@@ -11,29 +11,28 @@ import sample.multi.artifact.model.Line;
 
 import javax.inject.Inject;
 import java.io.File;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AppCli implements App {
+public class CliApp implements App {
 
 	private final LineParser lineParser;
 	private final GameBuilder builder;
 	private final GamePrinter printer;
 
-	private static final Logger LOG = LoggerFactory.getLogger(AppCli.class);
+	private static final Logger LOG = LoggerFactory.getLogger(CliApp.class);
 
 	@Inject
-	public AppCli(LineParser lineParser, GameBuilder builder, GamePrinter printer) {
+	public CliApp(LineParser lineParser, GameBuilder builder, GamePrinter printer) {
 		this.lineParser = lineParser;
 		this.builder = builder;
 		this.printer = printer;
 	}
 
 	@Override
-	public Game readInput(String path, PrintStream out) throws IOException {
+	public Game readInput(String path, PrintStream out) throws Exception {
 		List<Line> lines = new ArrayList<>();
 		Files.readAllLines(new File(path).toPath()).forEach(line -> {
 			try {

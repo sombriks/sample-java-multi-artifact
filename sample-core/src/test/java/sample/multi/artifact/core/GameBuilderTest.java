@@ -15,7 +15,7 @@ public class GameBuilderTest {
 			.getInstance(GameBuilder.class);
 
 	@Test
-	public void shouldParseOnePlayerGame() {
+	public void shouldParseOnePlayerGame() throws GameBuilderException {
 		List<Line> perfect = givenPerfectLines();
 		Game game = builder.fromLines(perfect.toArray(new Line[0]));
 		Assert.assertEquals(10, game.getBoards().get("Clark").getScores().size());
@@ -23,17 +23,22 @@ public class GameBuilderTest {
 	}
 
 	@Test
-	public void shouldParseTwoPlayersGame() {
+	public void shouldParseTwoPlayersGame() throws GameBuilderException {
 		List<Line> lines = givenSomeLines();
 		Game game = builder.fromLines(lines.toArray(new Line[0]));
 		Assert.assertEquals(2,game.getBoards().size());
 	}
 
 	@Test
-	public void shouldParseAllZeroesGame() {
+	public void shouldParseAllZeroesGame() throws GameBuilderException {
 		List<Line> lines = givenAllZeros();
 		Game game = builder.fromLines(lines.toArray(new Line[0]));
 		Assert.assertEquals(0, game.getBoards().get("Jeff").getScores().get(9).getValue().intValue());
+	}
+
+	@Test(expected = GameBuilderException.class)
+	public void shouldNotAcceptNullLines() throws GameBuilderException {
+		builder.fromLines(null);
 	}
 
 	private List<Line> givenPerfectLines() {

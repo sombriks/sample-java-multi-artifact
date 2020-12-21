@@ -6,9 +6,9 @@ import sample.multi.artifact.core.DefaultModule;
 
 import java.io.IOException;
 
-public class MainCli {
+public class CliMain {
 
-	public static void main(String... args) throws IOException {
+	public static void main(String... args) throws Exception {
 
 		if (args.length < 1) {
 			System.out.println("Please inform the file input path");

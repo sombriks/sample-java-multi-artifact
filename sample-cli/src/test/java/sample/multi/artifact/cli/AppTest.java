@@ -6,7 +6,6 @@ import org.junit.Test;
 import sample.multi.artifact.core.DefaultModule;
 import sample.multi.artifact.model.Game;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -16,7 +15,7 @@ public class AppTest {
 			.getInstance(App.class);
 
 	@Test
-	public void shouldReadCommonCase() throws IOException {
+	public void shouldReadCommonCase() throws Exception {
 		Path path = Paths.get("..", "input-examples", "input-good.txt");
 		Game game = app.readInput(path.toString(), System.out);
 		Assert.assertTrue(game.getBoards().containsKey("Jeff"));
@@ -24,7 +23,7 @@ public class AppTest {
 	}
 
 	@Test
-	public void shouldReadAllZeroesCase() throws IOException {
+	public void shouldReadAllZeroesCase() throws Exception {
 		Path path = Paths.get("..", "input-examples", "input-zeros.txt");
 		Game game = app.readInput(path.toString(), System.out);
 		Assert.assertTrue(game.getBoards().containsKey("Jack"));
@@ -32,7 +31,7 @@ public class AppTest {
 	}
 
 	@Test
-	public void shouldReadPerfectCase() throws IOException {
+	public void shouldReadPerfectCase() throws Exception {
 		Path path = Paths.get("..", "input-examples", "input-perfect.txt");
 		Game game = app.readInput(path.toString(), System.out);
 		Assert.assertTrue(game.getBoards().containsKey("Clark"));
@@ -40,7 +39,7 @@ public class AppTest {
 	}
 
 	@Test
-	public void shouldTolerateUglyInput() throws IOException {
+	public void shouldTolerateUglyInput() throws Exception {
 		Path path = Paths.get("..", "input-examples", "input-ugly.txt");
 		Game game = app.readInput(path.toString(), System.out);
 //		Assert.assertTrue(game.getBoards().containsKey("Clark"));
