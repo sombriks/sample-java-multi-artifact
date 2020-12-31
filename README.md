@@ -20,22 +20,22 @@ All you need to do is to build the projects by opening a terminal in the folder
 containing this README and use gradle:
 
 ```bash
-gradle build
-gradle :sample-cli:run --args="../input-examples/input-good.txt"
+./gradlew build
+./gradlew :sample-cli:run --args="../input-examples/input-good.txt"
 ``` 
 
 As an alternative, open two consoles. in the first one run:
 
 ```bash
-gradle build
-gradle :sample-api:run
+./gradlew build
+./gradlew :sample-api:run
 ``` 
 
 In the second one:
 
 ```bash
-gradle build
-gradle :sample-api-cli:run --args="../input-examples/input-good.txt"
+./gradlew build
+./gradlew :sample-api-cli:run --args="../input-examples/input-good.txt"
 ``` 
 
 The APP_ENV environment variable is assumed as `development` so the api-cli will
@@ -50,8 +50,8 @@ case or already have it.
 In order to build the reports:
 
 ```bash
-gradle build
-gradle jacocoTestReport
+./gradlew build
+./gradlew jacocoTestReport
 ``` 
 
 Reports can be found on 

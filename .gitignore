@@ -4,9 +4,6 @@
 .classpath
 build
 bin
-gradle
-gradlew
-gradlew.bat
 out
 .idea
 
