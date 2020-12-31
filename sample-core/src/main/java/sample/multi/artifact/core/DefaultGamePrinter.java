@@ -30,12 +30,21 @@ public class DefaultGamePrinter implements GamePrinter {
 		if (!score.isFinalFrame()) {
 			if (score.isStrike()) format = "\tX";
 			else {
-				format = score.getTake1() + "\t";
+				if(score.isFoul1()) format = "F\t";
+				else format = score.getTake1() + "\t";
+
 				if (score.isSpare()) format += "/";
+				else if (score.isFoul2()) format += "F";
 				else format += score.getTake2() + "";
 			}
-		} else
-			format = maybeStrike(score) + "\t" + maybeSpare(score) + "\t" + lastTake(score);
+		} else {
+			if(score.isFoul1()) format = "F\t";
+			else format = maybeStrike(score) + "\t";
+			if(score.isFoul2()) format = "F\t";
+			else format += maybeSpare(score) + "\t";
+			if(score.isFoul3()) format += "F\t";
+			else format += lastTake(score);
+		}
 		return format + "\t";
 	}
 

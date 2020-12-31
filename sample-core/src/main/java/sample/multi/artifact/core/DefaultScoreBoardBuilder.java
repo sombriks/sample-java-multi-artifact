@@ -19,9 +19,16 @@ public class DefaultScoreBoardBuilder implements ScoreBoardBuilder {
 				score.setFrame(scoreBoard.getScores().size());
 			}
 
-			if (score.getTake1() == null) score.setTake1(line.getPins());
-			else if (score.getTake2() == null) score.setTake2(line.getPins());
-			else if (score.getTake3() == null && score.isFinalFrame()) score.setTake3(line.getPins());
+			if (score.getTake1() == null) {
+				score.setTake1(line.getPins());
+				score.setFoul1(line.isFoul());
+			} else if (score.getTake2() == null) {
+				score.setTake2(line.getPins());
+				score.setFoul2(line.isFoul());
+			}	else if (score.getTake3() == null && score.isFinalFrame()) {
+				score.setTake3(line.getPins());
+				score.setFoul3(line.isFoul());
+			}
 
 			if(score.isFilled() && score.isFinalFrame()) break;
 

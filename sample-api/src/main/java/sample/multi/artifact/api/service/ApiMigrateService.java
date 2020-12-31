@@ -19,6 +19,7 @@ public class ApiMigrateService implements MigrateService {
 	private static final String[] MIGRATIONS = {
 			"migrations/0001-create-table-game.sql",
 			"migrations/0002-create-table-line.sql",
+			"migrations/0003-add-column-foul.sql",
 	};
 
 	@Inject

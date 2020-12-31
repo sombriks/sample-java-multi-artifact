@@ -8,6 +8,9 @@ public class Score {
 	private Integer take2;
 	private Integer take3;
 	private Integer value;
+	private boolean foul1 = false;
+	private boolean foul2 = false;
+	private boolean foul3 = false;
 
 	public Long getId() {
 		return id;
@@ -56,6 +59,18 @@ public class Score {
 	public void setValue(Integer value) {
 		this.value = value;
 	}
+
+	public boolean isFoul1() { return foul1; }
+
+	public void setFoul1(boolean foul1) { this.foul1 = foul1; }
+
+	public boolean isFoul2() { return foul2; }
+
+	public void setFoul2(boolean foul2) { this.foul2 = foul2; }
+
+	public boolean isFoul3() { return foul3; }
+
+	public void setFoul3(boolean foul3) { this.foul3 = foul3; }
 
 	public boolean isFinalFrame() {
 		return frame == 10;

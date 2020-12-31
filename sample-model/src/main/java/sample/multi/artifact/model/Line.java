@@ -10,6 +10,7 @@ public class Line {
 	private Long id;
 	private String player;
 	private Integer pins;
+	private boolean foul = false;
 
 	public Line() {
 	}
@@ -44,4 +45,11 @@ public class Line {
 		this.pins = pins;
 	}
 
+	public void setFoul(boolean foul) {
+		this.foul = foul;
+	}
+
+	public boolean isFoul() {
+		return foul;
+	}
 }

@@ -1,0 +1,1 @@
+alter table line add column if not exists foul boolean not null default false;
