@@ -2,7 +2,7 @@ package sample.multi.artifact.cli;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import sample.multi.artifact.core.defaultimpl.DefaultModule;
+import sample.multi.artifact.core.strict.StrictModule;
 
 public class CliMain {
 
@@ -14,12 +14,12 @@ public class CliMain {
 		}
 
 		Injector injector = Guice.createInjector(
-				new CliModule(), new DefaultModule()
+				new CliModule(), new StrictModule()
 		);
 
 		App app = injector.getInstance(App.class);
 
-		try{
+		try {
 			app.readInput(args[0], System.out);
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());

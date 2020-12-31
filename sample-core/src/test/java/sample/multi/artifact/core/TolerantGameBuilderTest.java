@@ -10,7 +10,7 @@ import sample.multi.artifact.model.Line;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameBuilderTest {
+public class TolerantGameBuilderTest {
 
 	private final GameBuilder builder = Guice.createInjector(new DefaultModule())
 			.getInstance(GameBuilder.class);
