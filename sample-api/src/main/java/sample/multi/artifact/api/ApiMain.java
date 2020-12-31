@@ -2,7 +2,7 @@ package sample.multi.artifact.api;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import sample.multi.artifact.core.DefaultModule;
+import sample.multi.artifact.core.defaultimpl.DefaultModule;
 
 
 public class ApiMain {

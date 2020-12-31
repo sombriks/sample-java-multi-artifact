@@ -3,6 +3,7 @@ package sample.multi.artifact.core;
 import com.google.inject.Guice;
 import org.junit.Assert;
 import org.junit.Test;
+import sample.multi.artifact.core.defaultimpl.DefaultModule;
 import sample.multi.artifact.model.Line;
 
 public class LineParserTest {

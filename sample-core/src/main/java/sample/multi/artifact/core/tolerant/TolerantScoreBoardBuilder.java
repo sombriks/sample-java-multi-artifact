@@ -1,10 +1,11 @@
-package sample.multi.artifact.core;
+package sample.multi.artifact.core.tolerant;
 
+import sample.multi.artifact.core.ScoreBoardBuilder;
 import sample.multi.artifact.model.Line;
 import sample.multi.artifact.model.Score;
 import sample.multi.artifact.model.ScoreBoard;
 
-public class DefaultScoreBoardBuilder implements ScoreBoardBuilder {
+public class TolerantScoreBoardBuilder implements ScoreBoardBuilder {
 	@Override
 	public void buildScores(ScoreBoard scoreBoard) {
 

@@ -2,13 +2,11 @@ package sample.multi.artifact.cli;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import sample.multi.artifact.core.DefaultModule;
-
-import java.io.IOException;
+import sample.multi.artifact.core.defaultimpl.DefaultModule;
 
 public class CliMain {
 
-	public static void main(String... args) throws Exception {
+	public static void main(String... args) {
 
 		if (args.length < 1) {
 			System.out.println("Please inform the file input path");
@@ -21,6 +19,10 @@ public class CliMain {
 
 		App app = injector.getInstance(App.class);
 
-		app.readInput(args[0], System.out);
+		try{
+			app.readInput(args[0], System.out);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 }

@@ -3,7 +3,7 @@ package sample.multi.artifact.cli;
 import com.google.inject.Guice;
 import org.junit.Assert;
 import org.junit.Test;
-import sample.multi.artifact.core.DefaultModule;
+import sample.multi.artifact.core.defaultimpl.DefaultModule;
 import sample.multi.artifact.model.Game;
 
 import java.nio.file.Path;
@@ -42,8 +42,8 @@ public class AppTest {
 	public void shouldTolerateUglyInput() throws Exception {
 		Path path = Paths.get("..", "input-examples", "input-ugly.txt");
 		Game game = app.readInput(path.toString(), System.out);
-//		Assert.assertTrue(game.getBoards().containsKey("Clark"));
-//		Assert.assertEquals(300, game.getBoards().get("Clark").getScores().get(9).getValue().intValue());
+		Assert.assertTrue(game.getBoards().containsKey("Jeff"));
+		Assert.assertEquals(154, game.getBoards().get("Jeff").getScores().get(9).getValue().intValue());
 	}
 
 }

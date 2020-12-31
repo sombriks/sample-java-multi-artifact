@@ -1,10 +1,18 @@
-package sample.multi.artifact.core;
+package sample.multi.artifact.core.tolerant;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import sample.multi.artifact.core.LineParseException;
+import sample.multi.artifact.core.LineParser;
 import sample.multi.artifact.model.Line;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
-public class DefaultLineParser implements LineParser {
+public class TolerantLineParser implements LineParser {
+
+	private static final Logger LOG = LoggerFactory.getLogger(TolerantLineParser.class);
 
 	@Override
 	public Line parse(String input) throws LineParseException {
@@ -29,5 +37,19 @@ public class DefaultLineParser implements LineParser {
 		}
 		else throw new LineParseException("Invalid pin score", input);
 		return line;
+	}
+
+	@Override
+	public List<Line> readAll(List<String> rawLines) throws LineParseException {
+		if(rawLines==null) throw new LineParseException("No lines input present");
+		List<Line> lines = new ArrayList<>();
+		rawLines.forEach(line -> {
+			try {
+				lines.add(parse(line));
+			} catch (LineParseException ex) {
+				LOG.warn("input problem", ex);
+			}
+		});
+		return lines;
 	}
 }

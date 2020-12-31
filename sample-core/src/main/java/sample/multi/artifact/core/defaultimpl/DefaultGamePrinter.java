@@ -1,5 +1,6 @@
-package sample.multi.artifact.core;
+package sample.multi.artifact.core.defaultimpl;
 
+import sample.multi.artifact.core.GamePrinter;
 import sample.multi.artifact.model.Game;
 import sample.multi.artifact.model.Score;
 

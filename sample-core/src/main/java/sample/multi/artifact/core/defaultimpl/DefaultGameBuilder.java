@@ -1,7 +1,10 @@
-package sample.multi.artifact.core;
+package sample.multi.artifact.core.defaultimpl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sample.multi.artifact.core.GameBuilder;
+import sample.multi.artifact.core.GameBuilderException;
+import sample.multi.artifact.core.ScoreBoardBuilder;
 import sample.multi.artifact.model.Game;
 import sample.multi.artifact.model.Line;
 import sample.multi.artifact.model.ScoreBoard;

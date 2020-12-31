@@ -33,14 +33,7 @@ public class CliApp implements App {
 
 	@Override
 	public Game readInput(String path, PrintStream out) throws Exception {
-		List<Line> lines = new ArrayList<>();
-		Files.readAllLines(new File(path).toPath()).forEach(line -> {
-			try {
-				lines.add(lineParser.parse(line));
-			} catch (LineParseException ex) {
-				LOG.warn("input problem", ex);
-			}
-		});
+		List<Line> lines = lineParser.readAll(Files.readAllLines(new File(path).toPath()));
 		Game game = builder.fromLines(lines.toArray(new Line[0]));
 		printer.printGame(game, out);
 		return game;
