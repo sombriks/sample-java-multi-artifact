@@ -1,13 +1,14 @@
 package sample.multi.artifact.core.tolerant;
 
 import sample.multi.artifact.core.ScoreBoardBuilder;
+import sample.multi.artifact.core.ScoreBoardException;
 import sample.multi.artifact.model.Line;
 import sample.multi.artifact.model.Score;
 import sample.multi.artifact.model.ScoreBoard;
 
 public class TolerantScoreBoardBuilder implements ScoreBoardBuilder {
 	@Override
-	public void buildScores(ScoreBoard scoreBoard) {
+	public void buildScores(ScoreBoard scoreBoard) throws ScoreBoardException {
 
 		scoreBoard.getScores().clear();
 
@@ -26,12 +27,10 @@ public class TolerantScoreBoardBuilder implements ScoreBoardBuilder {
 			} else if (score.getTake2() == null) {
 				score.setTake2(line.getPins());
 				score.setFoul2(line.isFoul());
-			}	else if (score.getTake3() == null && score.isFinalFrame()) {
+			} else if (score.getTake3() == null && score.isFinalFrame()) {
 				score.setTake3(line.getPins());
 				score.setFoul3(line.isFoul());
 			}
-
-			if(score.isFilled() && score.isFinalFrame()) break;
 
 			if (score.isFilled()) {
 				score.fit();
@@ -39,14 +38,7 @@ public class TolerantScoreBoardBuilder implements ScoreBoardBuilder {
 			}
 		}
 
-		scoreBoard.getScores().forEach(Score::fit);
-
-		while (scoreBoard.getScores().size() < 10) {
-			score = new Score();
-			scoreBoard.getScores().add(score);
-			score.setFrame(scoreBoard.getScores().size());
-			score.fit();
-		}
+		checkScores(scoreBoard);
 
 		for (int i = 0; i < 10; i++) {
 			score = scoreBoard.getScores().get(i);
@@ -71,5 +63,20 @@ public class TolerantScoreBoardBuilder implements ScoreBoardBuilder {
 			}
 			score.setValue(value);
 		}
+	}
+
+	protected void checkScores(ScoreBoard scoreBoard) throws ScoreBoardException {
+		Score score;
+		scoreBoard.getScores().forEach(Score::fit);
+
+		while (scoreBoard.getScores().size() < 10) {
+			score = new Score();
+			scoreBoard.getScores().add(score);
+			score.setFrame(scoreBoard.getScores().size());
+			score.fit();
+		}
+
+		if (scoreBoard.getScores().size() > 10)
+			scoreBoard.getScores().subList(10, scoreBoard.getScores().size()).clear();
 	}
 }

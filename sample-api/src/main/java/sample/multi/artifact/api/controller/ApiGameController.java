@@ -67,7 +67,7 @@ public class ApiGameController implements GameController {
 				printer.printGame(game, out);
 			}
 			service.save(game);
-		} catch (GameBuilderException ex) {
+		} catch (GameBuilderException | ScoreBoardException ex) {
 			LOG.error("game building problem", ex);
 			context.status(422).result("game building problem");
 		} catch (IOException ex) {

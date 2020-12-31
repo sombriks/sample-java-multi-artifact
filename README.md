@@ -6,13 +6,13 @@ Each project honors the maven standard project layout.
 
 ## Dependencies
 
-- java 8
-- gradle 6.7
+- java 8 (but works on java 11)
+- gradle 6.7 (but gradle wrapper is included)
 
-Built and tested on Fedora 33 with java 8. Both tools must be present at the 
-command line.
+Built and tested on Fedora 33 with java 8 and 11. 
+Tools must be present at the command line.
 
-One good way to manage java tools is <https://sdkman.io/>.
+One good way to manage java command line tools is <https://sdkman.io/>.
 
 ## How to run this sample
 
@@ -40,6 +40,11 @@ In the second one:
 
 The APP_ENV environment variable is assumed as `development` so the api-cli will
 send the request to <http://localhost:8080/api>.
+
+Please note: api implementation uses the `tolerant` component versions. The main
+Deliverable, _sample-cli_, uses `strict` versions. Both versions are present to
+better represent how dependency injection can help to switch implementations
+without large changes or even breaking ones. 
 
 ## Test Coverage
 

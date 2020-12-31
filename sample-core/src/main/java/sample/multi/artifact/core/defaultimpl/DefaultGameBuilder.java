@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import sample.multi.artifact.core.GameBuilder;
 import sample.multi.artifact.core.GameBuilderException;
 import sample.multi.artifact.core.ScoreBoardBuilder;
+import sample.multi.artifact.core.ScoreBoardException;
 import sample.multi.artifact.model.Game;
 import sample.multi.artifact.model.Line;
 import sample.multi.artifact.model.ScoreBoard;
@@ -25,9 +26,9 @@ public class DefaultGameBuilder implements GameBuilder {
 	}
 
 	@Override
-	public Game fromLines(Line... lines) throws GameBuilderException {
-		if(lines == null) throw new GameBuilderException("Line array cannot be null");
-		LOG.debug("Reading "+lines.length+" lines");
+	public Game fromLines(Line... lines) throws GameBuilderException, ScoreBoardException {
+		if (lines == null) throw new GameBuilderException("Line array cannot be null");
+		LOG.debug("Reading " + lines.length + " lines");
 		Game game = new Game();
 		game.setCreatedAt(new Date());
 		Stream.of(lines).forEach(line -> {
@@ -41,8 +42,10 @@ public class DefaultGameBuilder implements GameBuilder {
 			board.getLines().add(line);
 		});
 
-		game.getBoards().forEach((player, board) -> scoreBoardBuilder.buildScores(board));
+		for(ScoreBoard board : game.getBoards().values())
+			scoreBoardBuilder.buildScores(board);
 
 		return game;
 	}
+
 }

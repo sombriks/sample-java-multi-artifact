@@ -7,8 +7,6 @@ import sample.multi.artifact.core.LineParser;
 import sample.multi.artifact.core.ScoreBoardBuilder;
 import sample.multi.artifact.core.defaultimpl.DefaultGameBuilder;
 import sample.multi.artifact.core.defaultimpl.DefaultGamePrinter;
-import sample.multi.artifact.core.tolerant.TolerantLineParser;
-import sample.multi.artifact.core.tolerant.TolerantScoreBoardBuilder;
 
 public class StrictModule extends AbstractModule {
 
@@ -16,7 +14,7 @@ public class StrictModule extends AbstractModule {
 	protected void configure() {
 		bind(LineParser.class).to(StrictLineParser.class);
 		bind(GameBuilder.class).to(DefaultGameBuilder.class);
-		bind(ScoreBoardBuilder.class).to(TolerantScoreBoardBuilder.class);
+		bind(ScoreBoardBuilder.class).to(StrictScoreBoardBuilder.class);
 		bind(GamePrinter.class).to(DefaultGamePrinter.class);
 	}
 }

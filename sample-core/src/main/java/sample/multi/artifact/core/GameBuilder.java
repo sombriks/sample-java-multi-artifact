@@ -4,5 +4,5 @@ import sample.multi.artifact.model.Game;
 import sample.multi.artifact.model.Line;
 
 public interface GameBuilder {
-	Game fromLines(Line... lines) throws GameBuilderException;
+	Game fromLines(Line... lines) throws GameBuilderException, ScoreBoardException;
 }
